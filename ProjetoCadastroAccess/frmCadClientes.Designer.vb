@@ -25,7 +25,7 @@ Partial Class frmCadClientes
         Me.components = New System.ComponentModel.Container()
         Me.btnNovo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.txtCodigoBusca = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -36,24 +36,27 @@ Partial Class frmCadClientes
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtTelefone = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.CadastroDataSet = New ProjetoCadastroAccess.CadastroDataSet()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClientesTableAdapter = New ProjetoCadastroAccess.CadastroDataSetTableAdapters.ClientesTableAdapter()
         Me.CodcliDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomecliDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EndcliDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelcliDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CadastroDataSet = New ProjetoCadastroAccess.CadastroDataSet()
+        Me.ClientesTableAdapter = New ProjetoCadastroAccess.CadastroDataSetTableAdapters.ClientesTableAdapter()
+        Me.txtCodCliente = New System.Windows.Forms.TextBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.txtNomeBusca = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CadastroDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CadastroDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnNovo
         '
         Me.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNovo.Location = New System.Drawing.Point(54, 224)
+        Me.btnNovo.Location = New System.Drawing.Point(71, 224)
         Me.btnNovo.Name = "btnNovo"
-        Me.btnNovo.Size = New System.Drawing.Size(78, 34)
+        Me.btnNovo.Size = New System.Drawing.Size(114, 34)
         Me.btnNovo.TabIndex = 0
         Me.btnNovo.Text = "Novo"
         Me.btnNovo.UseVisualStyleBackColor = True
@@ -61,18 +64,18 @@ Partial Class frmCadClientes
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(51, 72)
+        Me.Label1.Location = New System.Drawing.Point(51, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 17)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Código"
         '
-        'txtCodigo
+        'txtCodigoBusca
         '
-        Me.txtCodigo.Location = New System.Drawing.Point(54, 92)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(87, 22)
-        Me.txtCodigo.TabIndex = 2
+        Me.txtCodigoBusca.Location = New System.Drawing.Point(54, 56)
+        Me.txtCodigoBusca.Name = "txtCodigoBusca"
+        Me.txtCodigoBusca.Size = New System.Drawing.Size(87, 22)
+        Me.txtCodigoBusca.TabIndex = 2
         '
         'Label2
         '
@@ -85,6 +88,7 @@ Partial Class frmCadClientes
         '
         'txtNome
         '
+        Me.txtNome.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nome_cli", True))
         Me.txtNome.Location = New System.Drawing.Point(54, 155)
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(171, 22)
@@ -101,6 +105,7 @@ Partial Class frmCadClientes
         '
         'txtEndereco
         '
+        Me.txtEndereco.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "end_cli", True))
         Me.txtEndereco.Location = New System.Drawing.Point(469, 155)
         Me.txtEndereco.Name = "txtEndereco"
         Me.txtEndereco.Size = New System.Drawing.Size(260, 22)
@@ -109,9 +114,9 @@ Partial Class frmCadClientes
         'btnSalvar
         '
         Me.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSalvar.Location = New System.Drawing.Point(261, 224)
+        Me.btnSalvar.Location = New System.Drawing.Point(252, 224)
         Me.btnSalvar.Name = "btnSalvar"
-        Me.btnSalvar.Size = New System.Drawing.Size(78, 34)
+        Me.btnSalvar.Size = New System.Drawing.Size(114, 34)
         Me.btnSalvar.TabIndex = 0
         Me.btnSalvar.Text = "Salvar"
         Me.btnSalvar.UseVisualStyleBackColor = True
@@ -119,9 +124,9 @@ Partial Class frmCadClientes
         'btnExcluir
         '
         Me.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExcluir.Location = New System.Drawing.Point(457, 224)
+        Me.btnExcluir.Location = New System.Drawing.Point(421, 224)
         Me.btnExcluir.Name = "btnExcluir"
-        Me.btnExcluir.Size = New System.Drawing.Size(78, 34)
+        Me.btnExcluir.Size = New System.Drawing.Size(114, 34)
         Me.btnExcluir.TabIndex = 0
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
@@ -129,9 +134,9 @@ Partial Class frmCadClientes
         'btnLimpar
         '
         Me.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnLimpar.Location = New System.Drawing.Point(644, 224)
+        Me.btnLimpar.Location = New System.Drawing.Point(576, 224)
         Me.btnLimpar.Name = "btnLimpar"
-        Me.btnLimpar.Size = New System.Drawing.Size(78, 34)
+        Me.btnLimpar.Size = New System.Drawing.Size(114, 34)
         Me.btnLimpar.TabIndex = 0
         Me.btnLimpar.Text = "Limpar"
         Me.btnLimpar.UseVisualStyleBackColor = True
@@ -147,6 +152,7 @@ Partial Class frmCadClientes
         '
         'txtTelefone
         '
+        Me.txtTelefone.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "tel_cli", True))
         Me.txtTelefone.Location = New System.Drawing.Point(261, 155)
         Me.txtTelefone.Name = "txtTelefone"
         Me.txtTelefone.Size = New System.Drawing.Size(164, 22)
@@ -158,38 +164,28 @@ Partial Class frmCadClientes
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodcliDataGridViewTextBoxColumn, Me.NomecliDataGridViewTextBoxColumn, Me.EndcliDataGridViewTextBoxColumn, Me.TelcliDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.ClientesBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(113, 319)
+        Me.DataGridView1.Location = New System.Drawing.Point(71, 288)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(574, 294)
+        Me.DataGridView1.Size = New System.Drawing.Size(633, 318)
         Me.DataGridView1.TabIndex = 3
-        '
-        'CadastroDataSet
-        '
-        Me.CadastroDataSet.DataSetName = "CadastroDataSet"
-        Me.CadastroDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.CadastroDataSet
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
         '
         'CodcliDataGridViewTextBoxColumn
         '
         Me.CodcliDataGridViewTextBoxColumn.DataPropertyName = "cod_cli"
         Me.CodcliDataGridViewTextBoxColumn.HeaderText = "Código"
+        Me.CodcliDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.CodcliDataGridViewTextBoxColumn.Name = "CodcliDataGridViewTextBoxColumn"
         Me.CodcliDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CodcliDataGridViewTextBoxColumn.Width = 125
         '
         'NomecliDataGridViewTextBoxColumn
         '
         Me.NomecliDataGridViewTextBoxColumn.DataPropertyName = "nome_cli"
         Me.NomecliDataGridViewTextBoxColumn.HeaderText = "Nome"
+        Me.NomecliDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.NomecliDataGridViewTextBoxColumn.Name = "NomecliDataGridViewTextBoxColumn"
         Me.NomecliDataGridViewTextBoxColumn.ReadOnly = True
         Me.NomecliDataGridViewTextBoxColumn.Width = 130
@@ -198,6 +194,7 @@ Partial Class frmCadClientes
         '
         Me.EndcliDataGridViewTextBoxColumn.DataPropertyName = "end_cli"
         Me.EndcliDataGridViewTextBoxColumn.HeaderText = "Endereço"
+        Me.EndcliDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.EndcliDataGridViewTextBoxColumn.Name = "EndcliDataGridViewTextBoxColumn"
         Me.EndcliDataGridViewTextBoxColumn.ReadOnly = True
         Me.EndcliDataGridViewTextBoxColumn.Width = 200
@@ -206,14 +203,59 @@ Partial Class frmCadClientes
         '
         Me.TelcliDataGridViewTextBoxColumn.DataPropertyName = "tel_cli"
         Me.TelcliDataGridViewTextBoxColumn.HeaderText = "Telefone"
+        Me.TelcliDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.TelcliDataGridViewTextBoxColumn.Name = "TelcliDataGridViewTextBoxColumn"
         Me.TelcliDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TelcliDataGridViewTextBoxColumn.Width = 125
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.CadastroDataSet
+        '
+        'CadastroDataSet
+        '
+        Me.CadastroDataSet.DataSetName = "CadastroDataSet"
+        Me.CadastroDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'txtCodCliente
+        '
+        Me.txtCodCliente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cod_cli", True))
+        Me.txtCodCliente.Location = New System.Drawing.Point(654, 56)
+        Me.txtCodCliente.Name = "txtCodCliente"
+        Me.txtCodCliente.ReadOnly = True
+        Me.txtCodCliente.Size = New System.Drawing.Size(75, 22)
+        Me.txtCodCliente.TabIndex = 4
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBuscar.Location = New System.Drawing.Point(343, 53)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(114, 25)
+        Me.btnBuscar.TabIndex = 5
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'txtNomeBusca
+        '
+        Me.txtNomeBusca.Location = New System.Drawing.Point(151, 56)
+        Me.txtNomeBusca.Name = "txtNomeBusca"
+        Me.txtNomeBusca.Size = New System.Drawing.Size(171, 22)
+        Me.txtNomeBusca.TabIndex = 6
         '
         'frmCadClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 656)
+        Me.Controls.Add(Me.txtNomeBusca)
+        Me.Controls.Add(Me.btnBuscar)
+        Me.Controls.Add(Me.txtCodCliente)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.txtEndereco)
         Me.Controls.Add(Me.txtTelefone)
@@ -221,7 +263,7 @@ Partial Class frmCadClientes
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtCodigo)
+        Me.Controls.Add(Me.txtCodigoBusca)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLimpar)
         Me.Controls.Add(Me.btnExcluir)
@@ -232,8 +274,8 @@ Partial Class frmCadClientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cadastro Clientes"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CadastroDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CadastroDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -241,7 +283,7 @@ Partial Class frmCadClientes
 
     Friend WithEvents btnNovo As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents txtCodigoBusca As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtNome As TextBox
     Friend WithEvents Label4 As Label
@@ -259,4 +301,7 @@ Partial Class frmCadClientes
     Friend WithEvents NomecliDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EndcliDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelcliDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents txtCodCliente As TextBox
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents txtNomeBusca As TextBox
 End Class
