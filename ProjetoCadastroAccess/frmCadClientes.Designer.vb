@@ -46,6 +46,7 @@ Partial Class frmCadClientes
         Me.txtCodCliente = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtNomeBusca = New System.Windows.Forms.TextBox()
+        Me.btnEditar = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CadastroDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +55,7 @@ Partial Class frmCadClientes
         'btnNovo
         '
         Me.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNovo.Location = New System.Drawing.Point(71, 224)
+        Me.btnNovo.Location = New System.Drawing.Point(54, 224)
         Me.btnNovo.Name = "btnNovo"
         Me.btnNovo.Size = New System.Drawing.Size(114, 34)
         Me.btnNovo.TabIndex = 0
@@ -114,7 +115,7 @@ Partial Class frmCadClientes
         'btnSalvar
         '
         Me.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSalvar.Location = New System.Drawing.Point(252, 224)
+        Me.btnSalvar.Location = New System.Drawing.Point(192, 224)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(114, 34)
         Me.btnSalvar.TabIndex = 0
@@ -124,7 +125,7 @@ Partial Class frmCadClientes
         'btnExcluir
         '
         Me.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExcluir.Location = New System.Drawing.Point(421, 224)
+        Me.btnExcluir.Location = New System.Drawing.Point(460, 224)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(114, 34)
         Me.btnExcluir.TabIndex = 0
@@ -134,7 +135,7 @@ Partial Class frmCadClientes
         'btnLimpar
         '
         Me.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnLimpar.Location = New System.Drawing.Point(576, 224)
+        Me.btnLimpar.Location = New System.Drawing.Point(590, 224)
         Me.btnLimpar.Name = "btnLimpar"
         Me.btnLimpar.Size = New System.Drawing.Size(114, 34)
         Me.btnLimpar.TabIndex = 0
@@ -164,12 +165,12 @@ Partial Class frmCadClientes
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodcliDataGridViewTextBoxColumn, Me.NomecliDataGridViewTextBoxColumn, Me.EndcliDataGridViewTextBoxColumn, Me.TelcliDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.ClientesBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(71, 288)
+        Me.DataGridView1.Location = New System.Drawing.Point(72, 310)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(633, 318)
+        Me.DataGridView1.Size = New System.Drawing.Size(842, 318)
         Me.DataGridView1.TabIndex = 3
         '
         'CodcliDataGridViewTextBoxColumn
@@ -248,11 +249,22 @@ Partial Class frmCadClientes
         Me.txtNomeBusca.Size = New System.Drawing.Size(171, 22)
         Me.txtNomeBusca.TabIndex = 6
         '
+        'btnEditar
+        '
+        Me.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEditar.Location = New System.Drawing.Point(324, 224)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(114, 34)
+        Me.btnEditar.TabIndex = 7
+        Me.btnEditar.Text = "Editar"
+        Me.btnEditar.UseVisualStyleBackColor = True
+        '
         'frmCadClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 656)
+        Me.ClientSize = New System.Drawing.Size(1041, 656)
+        Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.txtNomeBusca)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtCodCliente)
@@ -304,4 +316,5 @@ Partial Class frmCadClientes
     Friend WithEvents txtCodCliente As TextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents txtNomeBusca As TextBox
+    Friend WithEvents btnEditar As Button
 End Class

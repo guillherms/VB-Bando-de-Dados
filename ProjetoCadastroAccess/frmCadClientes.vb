@@ -34,4 +34,11 @@
             txtNomeBusca.Text = cli
         Next
     End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Me.Validate()
+        Me.ClientesBindingSource.EndEdit()
+        Me.CadastroDataSet.AcceptChanges()
+        Me.ClientesTableAdapter.UPDATE_CLi(txtNome.Text, txtEndereco.Text, txtTelefone.Text, txtCodCliente.Text)
+    End Sub
 End Class
